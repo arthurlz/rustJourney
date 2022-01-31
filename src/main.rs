@@ -1,3 +1,15 @@
+struct Person<'a> {
+    name: &'a str,
+}
+
+fn bigger<'a>(str1: &'a str, str2: &'a str) -> &'a str {
+    if str1 > str2 {
+        str1
+    } else {
+        str2
+    }
+}
+
 fn main() {
     let a: i32 = 18;
     let b: char = 'A';
@@ -37,4 +49,8 @@ fn main() {
         let b: u32 = mem::transmute(a);
         println!("{}", b);
     }
+
+    println!("{}", bigger("a", "b"));
+    let p = Person { name: "jack" };
+    println!("{:?}", p);
 }
